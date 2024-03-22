@@ -21,6 +21,7 @@ from snakemake import snakemake
 from snakemake.common import async_lock
 from snakemake.executors import ClusterExecutor, GenericClusterExecutor
 from snakemake.jobs import Job
+from snakemake.resources import DefaultResources
 from snakemake import scheduler  # for monkeypatch
 
 from reana_workflow_engine_snakemake.config import (
@@ -250,15 +251,26 @@ def run_jobs(
     operational_options={},
 ):
     """Run Snakemake jobs using custom REANA executor."""
+    workflow_file_path = os.path.join(workflow_workspace, workflow_file)
+    common_snakemake_args = dict(
+        snakefile=workflow_file_path,
+        config=workflow_parameters,
+        workdir=workflow_workspace,
+        keep_logger=True,
+        # Since Snakemake v7.3.0, the workflow logs include Snakemake-percieved native
+        # resource information on memory and storage (`mem_mb`, `disk_mb`) for each
+        # Snakemake rule run on cloud. However, REANA overrides these when running
+        # user jobs, so we should hide these in order not to present any misleading
+        # information to users. For this reason, the default resources are overridden
+        # here with the only the "bare" ones (`tmpdir`).
+        default_resources=DefaultResources(mode="bare"),
+    )
 
-    def _generate_report(workflow_file_path):
+    def _generate_report():
         """Generate HTML report."""
         success = snakemake(
-            workflow_file_path,
-            config=workflow_parameters,
-            workdir=workflow_workspace,
+            **common_snakemake_args,
             report=operational_options.get("report", DEFAULT_SNAKEMAKE_REPORT_FILENAME),
-            keep_logger=True,
         )
         if not success:
             log.error("Error generating workflow HTML report.")
@@ -269,21 +281,17 @@ def run_jobs(
     # Monkeypatch GenericClusterExecutor class in `scheduler` module
     scheduler.GenericClusterExecutor = REANAClusterExecutor
 
-    workflow_file_path = os.path.join(workflow_workspace, workflow_file)
     success = snakemake(
-        workflow_file_path,
+        **common_snakemake_args,
         printshellcmds=True,
         # FIXME: Can be anything as it's not directly used. It's supposed
         # to be the shell command to submit to job e.g. `condor_q`,
         # but we call RJC API client instead.
         cluster="reana",
-        config=workflow_parameters,
-        workdir=workflow_workspace,
         notemp=True,
         nodes=SNAKEMAKE_MAX_PARALLEL_JOBS,  # enables DAG parallelization
-        keep_logger=True,
     )
     # Once the workflow is finished, generate the report,
     # taking into account the metadata generated.
-    _generate_report(workflow_file_path)
+    _generate_report()
     return success

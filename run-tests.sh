@@ -16,15 +16,21 @@ check_commitlint () {
     npx commitlint --from="$from" --to="$to"
     found=0
     while IFS= read -r line; do
-        if echo "$line" | grep -qP "\(\#$pr\)$"; then
+        commit_hash=$(echo "$line" | cut -d ' ' -f 1)
+        message=$(echo "$line" | cut -d ' ' -f 2-)
+        if echo "$message" | grep -qP "\(\#$pr\)$"; then
             true
-        elif echo "$line" | grep -qP "^chore\(.*\): release"; then
+        elif echo "$message" | grep -qP "^chore\(.*\): release"; then
             true
         else
-            echo "✖   Headline does not end by '(#$pr)' PR number: $line"
+            echo "✖   Headline does not end by '(#$pr)' PR number: $message"
             found=1
         fi
-    done < <(git log "$from..$to" --format="%s")
+        parents=$(git rev-list --parents "$commit_hash" -n1 | awk '{print NF-1}')
+        if [ "$parents" -gt 1 ]; then
+            break
+        fi
+    done < <(git log "$from..$to" --format="%H %s")
     if [ $found -gt 0 ]; then
         exit 1
     fi
