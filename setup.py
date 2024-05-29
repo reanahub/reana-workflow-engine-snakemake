@@ -83,6 +83,7 @@ setup(
             "reana_workflow_engine_snakemake.cli:run_snakemake_workflow",
         ]
     },
+    python_requires=">=3.8",
     extras_require=extras_require,
     setup_requires=setup_requires,
     tests_require=tests_require,
