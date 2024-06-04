@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.95.0](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.3...0.95.0) (2024-06-04)
+
+
+### Build
+
+* **docker:** fix XRootD repository location ([#95](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/95)) ([69fea32](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/69fea329dd9bf91ff9eb1de9ac741262512a872a))
+
+
+### Bug fixes
+
+* **executor:** override default resources to remove mem/disk ([#91](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/91)) ([572a83f](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/572a83f5190c7cae95a4607b792f4b6e0c39262c)), closes [#90](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/90)
+
+
+### Continuous integration
+
+* **actions:** update GitHub actions due to Node 16 deprecation ([#89](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/89)) ([b0e3669](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b0e366922073e359c8b740696179e23d9daa4033))
+* **commitlint:** do not check merge commit's ancestors ([#92](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/92)) ([690dfc2](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/690dfc2668aea85549e6dbaad131e15afb1ecb21))
+
+
+### Chores
+
+* **master:** release 0.95.0-alpha.1 ([998ced1](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/998ced1869aabad2c37fe7a1c3f32cc6eb4b58f1))
+
 ## [0.9.3](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.2...0.9.3) (2024-03-04)
 
 
