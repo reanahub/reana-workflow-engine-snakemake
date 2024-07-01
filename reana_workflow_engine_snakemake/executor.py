@@ -97,6 +97,11 @@ class REANAClusterExecutor(GenericClusterExecutor):
                     ),
                     "slurm_partition": job.resources.get("slurm_partition"),
                     "slurm_time": job.resources.get("slurm_time"),
+                    "c4p_cpu_cores": job.resources.get("c4p_cpu_cores"),
+                    "c4p_memory_limit": job.resources.get("c4p_memory_limit"),
+                    "c4p_additional_requirements": job.resources.get(
+                        "c4p_additional_requirements"
+                    ),
                 }
                 job_id = submit_job(
                     self.rjc_api_client, self.publisher, job_request_body
