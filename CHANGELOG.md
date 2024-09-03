@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.9.4](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.3...0.9.4) (2024-09-03)
+
+
+### Build
+
+* **docker:** fix XRootD repository location ([#95](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/95)) ([69fea32](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/69fea329dd9bf91ff9eb1de9ac741262512a872a))
+* **docker:** pin setuptools 70 ([#102](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/102)) ([b27c9cf](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b27c9cfa21603ecc1554931f23c945d3f9e256d6))
+
+
+### Features
+
+* **executor:** allow Compute4PUNCH backend options ([#97](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/97)) ([4b00c52](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/4b00c523eb8750f49262471a43c9deefad1021d3))
+
+
+### Bug fixes
+
+* **executor:** override default resources to remove mem/disk ([#91](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/91)) ([572a83f](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/572a83f5190c7cae95a4607b792f4b6e0c39262c)), closes [#90](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/90)
+
 ## [0.9.3](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.2...0.9.3) (2024-03-04)
 
 
