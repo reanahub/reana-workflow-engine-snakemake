@@ -44,7 +44,7 @@ for key, reqs in extras_require.items():
     extras_require["all"].extend(reqs)
 
 install_requires = [
-    "reana-commons[snakemake_reports]>=0.95.0a2,<0.96.0",
+    "reana-commons[snakemake]>=0.95.0a2,<0.96.0",
 ]
 
 packages = find_packages()

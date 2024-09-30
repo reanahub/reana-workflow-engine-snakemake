@@ -98,9 +98,9 @@ RUN apt-get update -y && \
       git && \
     if test -e modules/reana-commons; then \
       if [ "${DEBUG}" -gt 0 ]; then \
-        pip install --no-cache-dir -e "modules/reana-commons[snakemake_reports]" --upgrade; \
+        pip install --no-cache-dir -e "modules/reana-commons[snakemake]" --upgrade; \
       else \
-        pip install --no-cache-dir "modules/reana-commons[snakemake_reports]" --upgrade; \
+        pip install --no-cache-dir "modules/reana-commons[snakemake]" --upgrade; \
       fi \
     fi && \
     apt-get remove -y \
