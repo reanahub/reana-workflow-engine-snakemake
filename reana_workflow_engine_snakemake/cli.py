@@ -49,8 +49,6 @@ def run_snakemake_workflow_engine_adapter(
     log.info(f"Workflow spec received: {workflow_file}")
     publisher.publish_workflow_status(workflow_uuid, running_status)
     success = run_jobs(
-        rjc_api_client,
-        publisher,
         workflow_workspace,
         workflow_file,
         workflow_parameters,
