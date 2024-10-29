@@ -1,5 +1,46 @@
 # Changelog
 
+## [0.95.0](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.3...0.95.0) (2024-10-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* **python:** drop support for Python 3.6 and 3.7
+
+### Build
+
+* **docker:** fix XRootD repository location ([#95](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/95)) ([69fea32](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/69fea329dd9bf91ff9eb1de9ac741262512a872a))
+* **docker:** pin setuptools to v70 ([#100](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/100)) ([2dd079e](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/2dd079e3289181e75ebd9fc11193397e8407b8ec))
+* **docker:** upgrade to Ubuntu 24.04 and Python 3.12 ([#99](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/99)) ([6aae67f](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/6aae67f78f089215bb0b3f54079cd0d4b0a09077))
+* **python:** add minimal `pyproject.toml` ([#100](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/100)) ([01883da](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/01883da42bc2f77c0e3e59dfbca54682a2f51405))
+* **python:** avoid using requirements.in ([#93](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/93)) ([b3e4727](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b3e47271929763a57793319d65a1d67559dc4e4f))
+* **python:** drop support for Python 3.6 and 3.7 ([#94](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/94)) ([3ef33c3](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/3ef33c3192d70b64d7f13a213186dd449fc8cb42))
+* **python:** remove deprecated `pytest-runner` ([#100](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/100)) ([14dec1b](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/14dec1b96cb9be542a4e99a84dfc85819eae5c1f))
+* **python:** use optional deps instead of `tests_require` ([#100](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/100)) ([9f37894](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/9f37894a1faf9ef60cb62d8a50471ad89a8fb6b9))
+
+
+### Features
+
+* **executor:** upgrade to Snakemake v8 ([#103](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/103)) ([01d6c8b](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/01d6c8b7d100dd08add5ad33e3999a78e1da4ff7))
+
+
+### Bug fixes
+
+* **executor:** override default resources to remove mem/disk ([#91](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/91)) ([572a83f](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/572a83f5190c7cae95a4607b792f4b6e0c39262c)), closes [#90](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/90)
+
+
+### Continuous integration
+
+* **actions:** update GitHub actions due to Node 16 deprecation ([#89](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/89)) ([b0e3669](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b0e366922073e359c8b740696179e23d9daa4033))
+* **commitlint:** check PR number presence in merge commits ([#101](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/101)) ([b0fca51](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b0fca51de2d39fb31a9009e962f8c57f1448d5fe))
+* **commitlint:** do not check merge commit's ancestors ([#92](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/92)) ([690dfc2](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/690dfc2668aea85549e6dbaad131e15afb1ecb21))
+* **pytest:** invoke `pytest` directly instead of `setup.py test` ([#100](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/100)) ([7ad6738](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/7ad6738610f0cf80989eed308eda773a3610b202))
+
+
+### Chores
+
+* **master:** release 0.95.0-alpha.1 ([998ced1](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/998ced1869aabad2c37fe7a1c3f32cc6eb4b58f1))
+
 ## [0.9.3](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.2...0.9.3) (2024-03-04)
 
 
