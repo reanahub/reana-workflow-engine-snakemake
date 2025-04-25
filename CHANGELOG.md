@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.9.5](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.4...0.9.5) (2025-04-25)
+
+
+### Features
+
+* **executor:** pass K8S requests/limits to job controller ([#108](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/108)) ([c851e91](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/c851e916ce6a6e2cbf2c74fb49987e345e8b4cb7))
+
+
+### Continuous integration
+
+* **runners:** upgrade CI runners to Ubuntu 22.04 ([#110](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/110)) ([1f71907](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/1f71907cfa20dd67fec6c5c094e58727bea6806e))
+
 ## [0.9.4](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.3...0.9.4) (2024-11-29)
 
 
