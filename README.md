@@ -9,10 +9,10 @@
 
 ## About
 
-REANA-Workflow-Engine-Snakemake is a component of the [REANA](http://www.reana.io/)
-reusable and reproducible research data analysis platform. It takes care of
-instantiating, executing and managing [Snakemake](https://snakemake.github.io/) based
-computational workflows.
+REANA-Workflow-Engine-Snakemake is a component of the
+[REANA](http://www.reana.io/) reusable and reproducible research data analysis
+platform. It takes care of instantiating, executing and managing
+[Snakemake](https://snakemake.github.io/) based computational workflows.
 
 ## Features
 
