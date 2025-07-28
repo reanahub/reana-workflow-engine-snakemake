@@ -17,6 +17,8 @@ include LICENSE
 include pytest.ini
 exclude .readthedocs.yaml
 exclude .editorconfig
+exclude .prettierrc.yaml
+exclude .prettierignore
 prune docs/_build
 recursive-include docs *.py
 recursive-include docs *.png
