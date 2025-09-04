@@ -139,6 +139,7 @@ class Executor(RemoteExecutor):
                     "kubernetes_memory_limit": job.resources.get(
                         "kubernetes_memory_limit"
                     ),
+                    "kubernetes_queue": job.resources.get("kubernetes_queue"),
                     "kubernetes_job_timeout": job.resources.get(
                         "kubernetes_job_timeout"
                     ),
