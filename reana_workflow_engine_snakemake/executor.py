@@ -136,6 +136,13 @@ class Executor(RemoteExecutor):
                     "kerberos": job.resources.get("kerberos", WORKFLOW_KERBEROS),
                     "unpacked_img": job.resources.get("unpacked_img", False),
                     "kubernetes_uid": job.resources.get("kubernetes_uid"),
+                    "kubernetes_cpu_request": job.resources.get(
+                        "kubernetes_cpu_request"
+                    ),
+                    "kubernetes_cpu_limit": job.resources.get("kubernetes_cpu_limit"),
+                    "kubernetes_memory_request": job.resources.get(
+                        "kubernetes_memory_request"
+                    ),
                     "kubernetes_memory_limit": job.resources.get(
                         "kubernetes_memory_limit"
                     ),
