@@ -56,7 +56,7 @@ pygments==2.19.1          # via reana-workflow-engine-snakemake (setup.py)
 python-dateutil==2.9.0.post0  # via arrow, bravado, bravado-core
 pytz==2025.1              # via bravado-core
 pyyaml==6.0.2             # via bravado, bravado-core, conda-inject, reana-commons, snakemake, swagger-spec-validator, yte
-reana-commons[snakemake,snakemake-xrootd]==0.95.0a7  # via reana-workflow-engine-snakemake (setup.py)
+reana-commons[snakemake,snakemake-xrootd]==0.95.0a12	# via reana-workflow-engine-snakemake (setup.py)
 referencing==0.36.2       # via jsonschema, jsonschema-specifications
 requests==2.32.3          # via bravado, bravado-core, snakemake
 reretry==0.11.8           # via snakemake, snakemake-interface-storage-plugins
