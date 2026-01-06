@@ -54,7 +54,7 @@ def _generate_report(dag_api, workflow_workspace, report_file_name):
     report_plugin = registry.get_plugin("html")
 
     report_args = ReportSettingsBase()
-    report_args.report_html_path = os.path.join(workflow_workspace, report_file_name)
+    report_args.report_html_path = Path(workflow_workspace) / report_file_name
     report_args.report_html_stylesheet_path = None
 
     report_settings = report_plugin.get_settings(args=report_args)
