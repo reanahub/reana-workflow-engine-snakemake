@@ -130,7 +130,7 @@ class Executor(RemoteExecutor):
                     "cmd": f"cd {workflow_workspace} && {job.shellcmd}",
                     "prettified_cmd": job.shellcmd,
                     "workflow_workspace": workflow_workspace,
-                    "job_name": job.name,
+                    "job_name": self._build_job_name(job),
                     "cvmfs_mounts": MOUNT_CVMFS,
                     "compute_backend": job.resources.get("compute_backend", ""),
                     "kerberos": job.resources.get("kerberos", WORKFLOW_KERBEROS),
@@ -261,6 +261,22 @@ class Executor(RemoteExecutor):
             RunStatus.failed,
             message="Snakemake is interrupted and all jobs are cancelled",
         )
+
+    @staticmethod
+    def _build_job_name(job: JobExecutorInterface) -> str:
+        """Build a descriptive job name including wildcards.
+
+        This creates more informative job names by appending wildcard key-value
+        pairs to the rule name. For example, a rule "process" with wildcards
+        sample=A and fileno=22 becomes "process (sample=A, fileno=22)".
+        """
+        try:
+            if job.wildcards:
+                wildcards = ", ".join(f"{k}={v}" for k, v in job.wildcards.items())
+                return f"{job.name} ({wildcards})"
+        except AttributeError:
+            pass
+        return job.name
 
     @staticmethod
     def _get_container_image(job: JobExecutorInterface) -> str:
