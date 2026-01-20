@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 #
 # This file is part of REANA.
-# Copyright (C) 2021 CERN.
+# Copyright (C) 2021, 2024, 2026 CERN.
 #
 # REANA is free software; you can redistribute it and/or modify it
 # under the terms of the MIT License; see LICENSE file for more details.
 
 """REANA-Workflow-Engine-Snakemake command line interface."""
-
 
 import logging
 import os
@@ -21,7 +20,6 @@ from reana_commons.workflow_engine import create_workflow_engine_command
 
 from reana_workflow_engine_snakemake.config import LOGGING_MODULE
 from reana_workflow_engine_snakemake.runner import run_jobs
-
 
 logging.basicConfig(level=REANA_LOG_LEVEL, format=REANA_LOG_FORMAT)
 log = logging.getLogger(LOGGING_MODULE)
