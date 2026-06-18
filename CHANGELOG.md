@@ -3,6 +3,54 @@
 
 # Changelog
 
+## [0.9.5](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.4...0.9.5) (2026-06-18)
+
+
+### Build
+
+* **python:** pin setuptools below 81 ([#120](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/120)) ([9544928](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/9544928cb043c55900146837038267e8004d2c7b))
+
+
+### Features
+
+* **executor:** include wildcards in job names ([#119](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/119)) ([3c63cdd](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/3c63cdd2c36db2eabd33be5df98f93ea07c6d500)), closes [#118](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/118)
+* **executor:** pass HTCondor CPU/memory/disk/requirements hints ([#127](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/127)) ([4899751](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/489975162ed66712d2b5e67bee8d4283af9313ed))
+* **executor:** pass K8S requests/limits to job controller ([#108](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/108)) ([a63d589](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/a63d58971ef0a72c073d14f7aac817ff1e2c1330))
+* **executor:** pass K8S requests/limits to job controller ([#108](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/108)) ([c851e91](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/c851e916ce6a6e2cbf2c74fb49987e345e8b4cb7))
+* **runner:** upgrade to Snakemake 9.16.3 ([#121](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/121)) ([fa0eb26](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/fa0eb2628c2e3eed75f385085008d193aaa247dd))
+
+
+### Bug fixes
+
+* **config:** use glob for egg-info in flake8 exclude ([#125](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/125)) ([17a9654](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/17a9654824a2de72a2cf88f749ea54ac4015f4ef))
+* **executor:** fail workflows on job submission errors ([#130](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/130)) ([77ef5b2](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/77ef5b28f83beea55b90a542019541352b45f892))
+* **git:** update .gitignore to exclude modules directory ([#126](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/126)) ([7e690ae](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/7e690ae9766f858347f662fa0431f4bdac8d4819))
+* **runner:** use Path object for report path ([#116](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/116)) ([eaf8dd3](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/eaf8dd3d1b29f2c1ed3dda304f5307186bf2e9de))
+
+
+### Code refactoring
+
+* **pytest:** drop pytest-reana and use pytest directly ([#124](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/124)) ([7414e1c](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/7414e1c92927e681fff2afbb351bb093b0375c3f))
+
+
+### Code style
+
+* **python:** adapt code base to the new black version ([#119](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/119)) ([c533f74](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/c533f743a4d5787076c027c5777ac81a7c80ece8))
+
+
+### Continuous integration
+
+* **commitlint:** fix local running of commit linter on macOS ([#111](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/111)) ([87de837](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/87de837f53b1626b0333ac9939edb083cb909943))
+* **jsonlint:** add JSON linting ([#113](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/113)) ([7bf64ad](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/7bf64ad0ec6b58e97502217805c5e3d72f16ada9))
+* **markdownlint:** add Markdown linting ([#113](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/113)) ([0caa994](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/0caa994d41fcc67451676fe78e223f9f31259a42))
+* **markdownlint:** less permissive global configuration ([#122](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/122)) ([bcce2d3](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/bcce2d3efe304a09a074d81f8a1458e3dc63b4ca))
+* **prettier:** add Prettier code formatting checks ([#113](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/113)) ([c281daf](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/c281daf1be8bb1baa95b55cc3557622afe87eba9))
+* **run-tests:** add usage help and refactor options ([#122](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/122)) ([b10a026](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/b10a026a9546c677ac00501b80ddaa1579c3fc40))
+* **runners:** upgrade CI runners to Ubuntu 22.04 ([#110](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/110)) ([a63d589](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/a63d58971ef0a72c073d14f7aac817ff1e2c1330))
+* **runners:** upgrade CI runners to Ubuntu 22.04 ([#110](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/110)) ([1f71907](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/1f71907cfa20dd67fec6c5c094e58727bea6806e))
+* **shfmt:** add shell script formatting checks ([#113](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/113)) ([365c940](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/365c940ce6cf0471f06181499f7d3ae82b1f02f8))
+* **yamllint:** add YAML linting ([#113](https://github.com/reanahub/reana-workflow-engine-snakemake/issues/113)) ([396408d](https://github.com/reanahub/reana-workflow-engine-snakemake/commit/396408df6879590e1802b9e6a2c950794268905f))
+
 ## [0.9.4](https://github.com/reanahub/reana-workflow-engine-snakemake/compare/0.9.3...0.9.4) (2024-11-29)
 
 ### Build
