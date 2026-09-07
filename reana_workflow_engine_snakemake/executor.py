@@ -176,7 +176,9 @@ class Executor(RemoteExecutor):
             "slurm_partition": job.resources.get("slurm_partition"),
             "slurm_time": job.resources.get("slurm_time"),
             "c4p_cpu_cores": _str_resource(job.resources.get("c4p_cpu_cores")),
+            "c4p_request_gpus": _str_resource(job.resources.get("c4p_request_gpus")),
             "c4p_memory_limit": _str_resource(job.resources.get("c4p_memory_limit")),
+            "c4p_notification": _str_resource(job.resources.get("c4p_notification")),
             "c4p_additional_requirements": job.resources.get(
                 "c4p_additional_requirements"
             ),
