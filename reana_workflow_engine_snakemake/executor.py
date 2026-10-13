@@ -8,14 +8,18 @@
 
 """REANA-Workflow-Engine-Snakemake executor."""
 
-import os
 import logging
+import os
 from dataclasses import dataclass, field
 from typing import List, Generator, Optional
 
 from bravado.exception import HTTPNotFound
 from reana_commons.config import REANA_DEFAULT_SNAKEMAKE_ENV_IMAGE
+from reana_commons.k8s.secrets import resolve_secret_names
+from reana_commons.snakemake import parse_secret_names_resource
 from reana_commons.utils import build_progress_message
+from reana_commons.workflow_engine import get_workflow_resources
+
 
 from reana_commons.api_client import JobControllerAPIClient
 from reana_commons.publisher import WorkflowStatusPublisher
@@ -159,6 +163,10 @@ class Executor(RemoteExecutor):
             "kubernetes_job_timeout": job.resources.get("kubernetes_job_timeout"),
             "voms_proxy": job.resources.get("voms_proxy", False),
             "rucio": job.resources.get("rucio", False),
+            "secret_names": resolve_secret_names(
+                parse_secret_names_resource(job.resources.get("secret_names")),
+                get_workflow_resources(),
+            ),
             "htcondor_max_runtime": job.resources.get("htcondor_max_runtime", ""),
             "htcondor_accounting_group": job.resources.get(
                 "htcondor_accounting_group", ""

@@ -8,6 +8,7 @@
 
 """REANA-Workflow-Engine-Snakemake executor tests."""
 
+import json
 from unittest.mock import Mock, patch
 
 import pytest
@@ -127,3 +128,45 @@ def test_run_job_does_not_report_submission_callback_failure(
         executor.run_job(job)
 
     executor.report_job_error.assert_not_called()
+
+
+@pytest.mark.parametrize(
+    "rule_secret_names,workflow_resources,expected_secret_names",
+    [
+        (None, {}, None),
+        (None, {"secret_names": ["global"]}, ["global"]),
+        ("", {"secret_names": ["global"]}, []),
+        ("local", {"secret_names": ["global"]}, ["local"]),
+    ],
+)
+@patch("reana_workflow_engine_snakemake.executor.publish_workflow_start")
+def test_run_job_secret_names_resolution(
+    publish_workflow_start,
+    monkeypatch,
+    rule_secret_names,
+    workflow_resources,
+    expected_secret_names,
+):
+    """Rule-local secret_names should override or inherit workflow defaults."""
+    monkeypatch.setenv("workflow_uuid", "test-uuid")
+    monkeypatch.setenv("workflow_workspace", "/workspace")
+    monkeypatch.setenv("REANA_WORKFLOW_RESOURCES", json.dumps(workflow_resources))
+
+    executor = Executor.__new__(Executor)
+    executor.publisher = Mock()
+    executor.rjc_api_client = Mock()
+    executor.rjc_api_client.submit.return_value = {"job_id": "job-id"}
+    executor.report_job_error = Mock()
+    executor.report_job_submission = Mock()
+
+    job = make_shell_job()
+    if rule_secret_names is not None:
+        job.resources = {"secret_names": rule_secret_names}
+
+    with patch("reana_workflow_engine_snakemake.executor.publish_job_submission"):
+        executor.run_job(job)
+
+    assert (
+        executor.rjc_api_client.submit.call_args.kwargs.get("secret_names")
+        == expected_secret_names
+    )

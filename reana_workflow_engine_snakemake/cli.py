@@ -16,7 +16,10 @@ from reana_commons.config import (
     REANA_LOG_LEVEL,
     REANA_WORKFLOW_UMASK,
 )
-from reana_commons.workflow_engine import create_workflow_engine_command
+from reana_commons.workflow_engine import (
+    create_workflow_engine_command,
+    set_workflow_resources,
+)
 
 from reana_workflow_engine_snakemake.config import LOGGING_MODULE
 from reana_workflow_engine_snakemake.runner import run_jobs
@@ -31,6 +34,7 @@ def run_snakemake_workflow_engine_adapter(
     workflow_uuid=None,
     workflow_workspace=None,
     workflow_file=None,
+    workflow_resources=None,
     workflow_parameters=None,
     operational_options={},
     **kwargs,
@@ -42,6 +46,7 @@ def run_snakemake_workflow_engine_adapter(
     # use some shared object between tasks.
     os.environ["workflow_uuid"] = workflow_uuid
     os.environ["workflow_workspace"] = workflow_workspace
+    set_workflow_resources(workflow_resources)
     os.umask(REANA_WORKFLOW_UMASK)
 
     log.info(f"Workflow spec received: {workflow_file}")
