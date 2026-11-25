@@ -42,7 +42,7 @@ for key, reqs in extras_require.items():
     extras_require["all"].extend(reqs)
 
 install_requires = [
-    "reana-commons[snakemake,snakemake-kubernetes,snakemake-xrootd]>=0.95.0a24,<0.96.0",
+    "reana-commons[snakemake,snakemake-kubernetes,snakemake-xrootd]>=0.95.0a29,<0.96.0",
     "pygments>=2.18.0",  # necessary for Snakemake reports
 ]
 

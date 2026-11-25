@@ -64,7 +64,7 @@ pyrsistent==0.20.0        # via jsonschema
 python-dateutil==2.9.0.post0  # via bravado, bravado-core, kubernetes
 pytz==2026.4              # via bravado-core
 pyyaml==6.0.3             # via bravado, bravado-core, conda-inject, kubernetes, reana-commons, snakemake, swagger-spec-validator, yte
-reana-commons[snakemake,snakemake-kubernetes,snakemake-xrootd]==0.95.0a24  # via reana-workflow-engine-snakemake (setup.py)
+reana-commons[snakemake,snakemake-kubernetes,snakemake-xrootd]==0.95.0a29	# via reana-workflow-engine-snakemake (setup.py)
 referencing==0.37.0       # via snakemake
 requests==2.34.2          # via bravado, bravado-core, kubernetes, requests-oauthlib, snakemake
 requests-oauthlib==2.0.0  # via kubernetes
